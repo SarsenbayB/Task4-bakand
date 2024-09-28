@@ -24,7 +24,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://task4-one-mu.vercel.app'
+    origin: ['https://task4-one-mu.vercel.app', 'https://task4-files.vercel.app']
 }));
 
 app.post("/auth/login", loginValidation, UserController.login);
