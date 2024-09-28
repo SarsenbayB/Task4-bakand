@@ -10,7 +10,7 @@ import * as UserController from "./controllers/UserController.js";
 dotenv.config();
 
 // Constants
-const PORT = process.env.PORT || 4445;
+const PORT = process.env.PORT || 4444;
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_NAME = process.env.DB_NAME;
@@ -24,7 +24,10 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: ['https://task4-one-mu.vercel.app', 'https://task4-files.vercel.app']
+    origin: ['https://task4-one-mu.vercel.app', 'https://task4-files.vercel.app', 'http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
 }));
 
 app.post("/auth/login", loginValidation, UserController.login);
