@@ -23,12 +23,7 @@ mongoose
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-    origin: ['https://task4-one-mu.vercel.app', 'https://task4-files.vercel.app', 'http://localhost:3000'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-}));
+app.use(cors());
 
 app.post("/auth/login", loginValidation, UserController.login);
 app.post("/auth/register", registerValidation, UserController.register);
